@@ -321,7 +321,7 @@ body {
 #sm-banner {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 #sm-banner .banner-box {
@@ -330,7 +330,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   background-image: url("img/banner/b17.jpg");
-  min-width: 580px;
+  min-width: 550px;
   height: 50vh;
   background-size: cover;
   background-position: center;
@@ -358,3 +358,15 @@ body {
   padding-bottom: 15px;
 
 }
+
+#sm-banner .banner-box:hover button {
+  background: #088178;
+  border: 1px solid #088178;
+}
+
+#sm-banner .banner-box2 {
+  background-image: url("img/banner/b10.jpg");
+  margin-left: 15px;
+}
+
+
