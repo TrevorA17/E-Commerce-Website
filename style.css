@@ -608,4 +608,18 @@ footer .copyright {
   #product1 .pro{
     margin: 15px;
   }
+  #banner {
+    height: 20vh;
+  }
+
+  #sm-banner .banner-box{
+    min-width: 50%;
+    height: 30vh;
+  }
+
+  #banner3 {
+    padding: 0 40px;
+  }
+  
+
 }
