@@ -540,6 +540,9 @@ footer .copyright {
 
 /* Start Media Query */
 @media (max-width:1099px) {
+  .section-p1 {
+    padding: 40px 40px;
+  }
   #navbar {
     display: flex;
     flex-direction: column;
@@ -597,5 +600,9 @@ footer .copyright {
 
   #feature .fe-box{
     margin: 15px 15px;
+  }
+  
+  #product1 .pro-container {
+    justify-content: center;
   }
 }
