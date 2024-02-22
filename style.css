@@ -412,6 +412,7 @@ body {
   font-size: 15px;
 }
 
+/* newsletter  */
 #newsletter {
   display: flex;
   justify-content: space-between;
@@ -464,6 +465,7 @@ body {
   border-bottom-left-radius: 0;
 }
 
+/* Footer  */
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -526,3 +528,6 @@ footer .copyright {
   width: 100%;
   text-align: center;
 }
+
+/* Start Media Query */
+
