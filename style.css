@@ -434,3 +434,7 @@ body {
   font-weight: 600;
   color: #818ea0;
 }
+
+#newsletter p span {
+  color: #ffbd27;
+}
