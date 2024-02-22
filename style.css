@@ -330,7 +330,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   background-image: url("img/banner/b17.jpg");
-  min-width: 550px;
+  min-width: 500px;
   height: 50vh;
   background-size: cover;
   background-position: center;
@@ -366,7 +366,6 @@ body {
 
 #sm-banner .banner-box2 {
   background-image: url("img/banner/b10.jpg");
-  margin-left: 15px;
 }
 
 
