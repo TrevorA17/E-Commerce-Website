@@ -615,11 +615,14 @@ footer .copyright {
   #sm-banner .banner-box{
     min-width: 50%;
     height: 30vh;
+    margin-left: 5px;
   }
 
   #banner3 {
     padding: 0 40px;
   }
-  
 
+  #newsletter .form {
+    width: 70%;
+  }
 }
