@@ -787,7 +787,7 @@ font-size: 25px;
   }
 
   /* Single Product */
-  #prodeatils {
+  #prodetails {
     display: flex;
     flex-direction: column;
   }
