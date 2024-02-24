@@ -71,7 +71,7 @@
         </section>
 
         <section id="product1" class="section-p1">
-            <h2>New Arrivals</h2>
+            <h2>Featured Products</h2>
             <p>Summer Collection New Modern Designs</p>
             <div class="pro-container">
                 <div class="pro">
@@ -205,6 +205,25 @@
                 <p> &copy; All rights Reserved 2024 | Powered by Trevor Okinda</p>
             </div>
         </footer>
+
+        <script>
+            const MainImg = document.getElementById("MainImg");
+            const smallimg = document.getElementById("small-img");
+
+            smallimg[0].onclick = function () {
+                MainImg.src = smallimg[0].src;
+            }
+            smallimg[1].onclick = function () {
+                MainImg.src = smallimg[1].src;
+            }
+            smallimg[2].onclick = function () {
+                MainImg.src = smallimg[2].src;
+            }
+            smallimg[3].onclick = function () {
+                MainImg.src = smallimg[3].src;
+            }
+
+        </script>
         <script src="script.js"></script>
     </body>
 </html>
