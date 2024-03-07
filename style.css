@@ -883,6 +883,10 @@ font-size: 25px;
   #blog .blog-img {
     width: 100%;
     margin-right: 0px;
+    margin-bottom: 30px;
+  }
+  #blog .blog-details {
+    width: 100%;
   }
 
 }
