@@ -635,6 +635,11 @@ font-size: 25px;
   line-height: 25px;
 }
 
+/* Blog Page  */
+#page-header.blog-header {
+  background-image: url(img/banner/b19.jpg);
+}
+
 
 /* Start Media Query */
 @media (max-width:1099px) {
