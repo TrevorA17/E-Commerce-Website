@@ -791,6 +791,13 @@ font-size: 25px;
   height: 100%;
 } 
 */
+#form-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid #e1e1e1;
+}
 
 #form-details form {
   width: 65%;
