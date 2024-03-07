@@ -925,4 +925,18 @@ font-size: 25px;
     width: 100%;
   }
 
+  /* About Page  */
+  #about-head {
+    flex-direction: column;    
+  }
+  #about-head img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #about-head div {
+    padding-left: 40px;
+  }
+  #about-app .video {
+    width: 100%;
+  }
 }
