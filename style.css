@@ -670,6 +670,8 @@ font-size: 25px;
   font-size: 11px;
   color: #000;
   font-weight: 700;
+  position: relative;
+  transition: 0.3s;
 }
 
 #blog .blog-details a::after{
@@ -680,6 +682,13 @@ font-size: 25px;
   position: absolute;
   top: 4px;
   right: -60px;
+}
+
+#blog .blog-details a:hover{
+  color: #088178;
+}
+#blog .blog-details a:hover::after{
+  background-color: #088178;
 }
 
 /* Start Media Query */
