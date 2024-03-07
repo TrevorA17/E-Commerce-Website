@@ -649,6 +649,7 @@ font-size: 25px;
   align-items: center;
   width: 100%;
   position: relative;
+  padding-bottom: 90px;
 }
 
 #blog .blog-img {
