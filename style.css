@@ -708,6 +708,20 @@ font-size: 25px;
   background-image: url(img/about/banner.png);
 }
 
+#about-head {
+  display: flex;
+  align-items: center;
+}
+
+#about-head img {
+  width: 50%;
+  height: auto;
+}
+
+#about-head div {
+  padding-left: 40px;
+}
+
 /* Start Media Query */
 @media (max-width:1099px) {
   .section-p1 {
