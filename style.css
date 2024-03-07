@@ -779,7 +779,6 @@ font-size: 25px;
   margin: 0;
   font-size: 14px;
 }
-
 /* #contact-details .map {
   width: 30%;
   height: 400px;
@@ -789,8 +788,14 @@ font-size: 25px;
   width: 100%;
   height: 100%;
 } 
+*/
 
-
+#form-details form {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 /* Start Media Query */
 @media (max-width:1099px) {
