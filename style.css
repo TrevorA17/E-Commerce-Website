@@ -49,16 +49,16 @@ p {
 }
 
 button.normal {
-font-size: 14px;
-font-weight: 600;
-padding: 15px 30px;
-color: #000;
-background-color: #fff;
-border-radius: 4px;
-cursor: pointer;
-border: none;
-outline: none;
-transition: 0.2s;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
 }
 
 button.white {
@@ -71,29 +71,29 @@ button.white {
   border: 1px solid #fff;
   outline: none;
   transition: 0.2s;
-  }
+}
 
 body {
   width: 100%;
 }
 
 /* Header Start  */
-#header{
+#header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 80px;
-  background: #E3e6f3;
+  background: #e3e6f3;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
   position: sticky;
   top: 0;
-  left:0;
+  left: 0;
 }
 
-#navbar{
+#navbar {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 }
 #navbar li {
@@ -110,8 +110,8 @@ body {
 }
 
 #navbar li a:hover,
-#navbar li a.active{
-  color: #7F4D3E;
+#navbar li a.active {
+  color: #7f4d3e;
 }
 
 #navbar li a.active::after,
@@ -119,7 +119,7 @@ body {
   content: "";
   width: 30%;
   height: 2px;
-  background: #7F4D3E;
+  background: #7f4d3e;
   position: absolute;
   bottom: -4px;
   left: 20px;
@@ -135,8 +135,8 @@ body {
 }
 /* CSS to style the logo */
 .logo {
-  max-width: 180px;  
-  max-height: 90px;  
+  max-width: 180px;
+  max-height: 90px;
   width: auto;
   height: auto;
 }
@@ -145,7 +145,7 @@ body {
 #hero {
   background-image: url("img/hero4.png");
   height: 90vh;
-  width:100%;
+  width: 100%;
   background-size: cover;
   background-position: top 25% right 0;
   padding: 0 80px;
@@ -159,49 +159,47 @@ body {
   padding-bottom: 15px;
 }
 
-#hero h1{
-  color: #7F4D3E;
+#hero h1 {
+  color: #7f4d3e;
 }
 
 #hero button {
   background-image: url("img/button.png");
-  background-color:  transparent;
-  color: #7F4D3E;
-  border:  0;
-  padding:  14px  80px 14px 65px;
+  background-color: transparent;
+  color: #7f4d3e;
+  border: 0;
+  padding: 14px 80px 14px 65px;
   background-repeat: no-repeat;
   cursor: pointer;
   font-weight: 700;
   font-size: 15px;
 }
 
-#feature{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-#feature .fe-box{
-  width: 180px;
+#feature {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
   text-align: center;
-  padding: 25px 15px;
-  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
-  border: 1px solid #cce7d0;
-  border-radius: 4px;
-  margin: 15px 0;
 }
 
-#feature .fe-box :hover{
+#feature .fe-box {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+#feature .fe-box :hover {
   box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
 }
 
-#feature .fe-box img{
-  width: 100%;
+#feature .fe-box img {
+  width: 60px;
   margin-bottom: 10px;
 }
 
-#feature .fe-box h6{
+#feature .fe-box h6 {
   display: inline-block;
   padding: 9px 8px 6px 8px;
   line-height: 1;
@@ -236,7 +234,7 @@ body {
   flex-wrap: wrap;
 }
 
-#product1 .pro{
+#product1 .pro {
   width: 23%;
   min-width: 250px;
   padding: 10px 12px;
@@ -291,7 +289,7 @@ body {
   height: 40px;
   line-height: 40px;
   border-radius: 50px;
-  background-color: #e8f6ea ;
+  background-color: #e8f6ea;
   font-weight: 500;
   color: #088178;
   border: 1px solid #cce7d0;
@@ -316,7 +314,6 @@ body {
 #banner h4 {
   color: #fff;
   font-size: 16px;
-
 }
 
 #banner h2 {
@@ -357,14 +354,12 @@ body {
   color: #fff;
   font-size: 20px;
   font-weight: 300;
-
 }
 
 #sm-banner h2 {
   color: #fff;
   font-size: 28px;
   font-weight: 800;
-
 }
 
 #sm-banner span {
@@ -372,7 +367,6 @@ body {
   font-size: 14px;
   font-weight: 500;
   padding-bottom: 15px;
-
 }
 
 #sm-banner .banner-box:hover button {
@@ -405,16 +399,13 @@ body {
   margin-bottom: 20px;
 }
 
-#banner3 .banner-box2{
+#banner3 .banner-box2 {
   background-image: url("img/banner/b4.jpg");
-
 }
 
-#banner3 .banner-box3{
+#banner3 .banner-box3 {
   background-image: url("img/banner/b18.jpg");
-
 }
-
 
 #banner3 h2 {
   color: #fff;
@@ -466,7 +457,7 @@ body {
   padding: 0 1.25em;
   font-size: 14px;
   width: 100%;
-  border:1px solid transparent;
+  border: 1px solid transparent;
   border-radius: 4px;
   outline: none;
   border-top-right-radius: 0;
@@ -488,7 +479,7 @@ footer {
   justify-content: space-between;
 }
 
-footer  .col {
+footer .col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -612,7 +603,7 @@ footer .copyright {
 }
 
 #prodetails .single-pro-details h2 {
-font-size: 25px;
+  font-size: 25px;
 }
 
 #prodetails .single-pro-details select {
@@ -638,7 +629,7 @@ font-size: 25px;
   color: #fff;
 }
 
-#prodetails .single-pro-details span{
+#prodetails .single-pro-details span {
   line-height: 25px;
 }
 
@@ -683,7 +674,7 @@ font-size: 25px;
   transition: 0.3s;
 }
 
-#blog .blog-details a::after{
+#blog .blog-details a::after {
   content: "";
   width: 50px;
   height: 1px;
@@ -693,14 +684,14 @@ font-size: 25px;
   right: -60px;
 }
 
-#blog .blog-details a:hover{
+#blog .blog-details a:hover {
   color: #088178;
 }
-#blog .blog-details a:hover::after{
+#blog .blog-details a:hover::after {
   background-color: #088178;
 }
 
-#blog .blog-box h1{
+#blog .blog-box h1 {
   position: absolute;
   top: -40px;
   left: 0;
@@ -733,13 +724,13 @@ font-size: 25px;
   text-align: center;
 }
 
-#about-app .video{
+#about-app .video {
   width: 70%;
   height: 100%;
   margin: 30px auto 0 auto;
 }
 
-#about-app .video video{
+#about-app .video video {
   width: 100%;
   height: 100%;
   border-radius: 20px;
@@ -757,7 +748,7 @@ font-size: 25px;
 }
 
 #contact-details .details span,
-#form-details form span{
+#form-details form span {
   font-size: 12px;
 }
 
@@ -830,7 +821,7 @@ font-size: 25px;
 #form-details .people div {
   padding-bottom: 25px;
   display: flex;
-  align-items:flex-start ;
+  align-items: flex-start;
 }
 
 #form-details .people div img {
@@ -928,9 +919,8 @@ font-size: 25px;
 }
 
 #coupon h3,
-#subtotal h3{
+#subtotal h3 {
   padding-bottom: 15px;
-
 }
 
 #coupon input {
@@ -952,7 +942,7 @@ font-size: 25px;
   width: 50%;
   margin-bottom: 30px;
   border: 1px solid #e2e9e1;
-  padding:30px;
+  padding: 30px;
 }
 
 #subtotal table {
@@ -968,13 +958,8 @@ font-size: 25px;
   font-size: 13px;
 }
 
-
-
-
-
-
 /* Start Media Query */
-@media (max-width:1099px) {
+@media (max-width: 1099px) {
   .section-p1 {
     padding: 40px 40px;
   }
@@ -988,7 +973,7 @@ font-size: 25px;
     right: -300px;
     height: 100vh;
     width: 300px;
-    background-color: #E3e6f3;
+    background-color: #e3e6f3;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.01);
     padding: 80px 0 0 10px;
     transition: 0.3s;
@@ -1029,25 +1014,25 @@ font-size: 25px;
     background-position: top 30% right 30%;
   }
 
-  #feature{
+  #feature {
     justify-content: center;
   }
 
-  #feature .fe-box{
+  #feature .fe-box {
     margin: 15px 15px;
   }
-  
+
   #product1 .pro-container {
     justify-content: center;
   }
-  #product1 .pro{
+  #product1 .pro {
     margin: 15px;
   }
   #banner {
     height: 20vh;
   }
 
-  #sm-banner .banner-box{
+  #sm-banner .banner-box {
     min-width: 50%;
     height: 30vh;
     margin-left: 5px;
@@ -1073,7 +1058,6 @@ font-size: 25px;
     width: 50%;
   }
 }
-
 
 @media (max-width: 499px) {
   .section-p1 {
@@ -1110,10 +1094,9 @@ font-size: 25px;
     width: 100%;
     background-position: top 30% right 30%;
   }
-  #sm-banner .banner-box2{
+  #sm-banner .banner-box2 {
     min-width: 50%;
     height: 40vh;
-
   }
   #banner3 {
     padding: 0 20px;
@@ -1141,7 +1124,7 @@ font-size: 25px;
     width: 100%;
     margin-right: 0px;
   }
-  
+
   #prodetails .single-pro-details {
     width: 100%;
   }
@@ -1169,7 +1152,7 @@ font-size: 25px;
 
   /* About Page  */
   #about-head {
-    flex-direction: column;    
+    flex-direction: column;
   }
   #about-head img {
     width: 100%;
@@ -1186,11 +1169,11 @@ font-size: 25px;
   #contact-details {
     flex-direction: column;
   }
-  #contact-details .details{
+  #contact-details .details {
     width: 100%;
     margin-bottom: 30px;
   }
-  #contact-details .map{
+  #contact-details .map {
     width: 100%;
   }
   #form-details {
@@ -1214,5 +1197,4 @@ font-size: 25px;
     width: 100%;
     padding: 20px;
   }
-
 }
