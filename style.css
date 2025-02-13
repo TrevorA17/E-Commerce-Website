@@ -135,8 +135,8 @@ body {
 }
 /* CSS to style the logo */
 .logo {
-  max-width: 150px;  /* Adjust this value to your preference */
-  max-height: 90px;  /* Adjust this value to your preference */
+  max-width: 180px;  
+  max-height: 90px;  
   width: auto;
   height: auto;
 }
