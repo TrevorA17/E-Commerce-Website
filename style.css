@@ -111,7 +111,7 @@ body {
 
 #navbar li a:hover,
 #navbar li a.active{
-  color: #088178;
+  color: #7F4D3E;
 }
 
 #navbar li a.active::after,
@@ -119,7 +119,7 @@ body {
   content: "";
   width: 30%;
   height: 2px;
-  background: #088178;
+  background: #7F4D3E;
   position: absolute;
   bottom: -4px;
   left: 20px;
@@ -160,13 +160,13 @@ body {
 }
 
 #hero h1{
-  color: #088178;
+  color: #7F4D3E;
 }
 
 #hero button {
   background-image: url("img/button.png");
   background-color:  transparent;
-  color: #088178;
+  color: #7F4D3E;
   border:  0;
   padding:  14px  80px 14px 65px;
   background-repeat: no-repeat;
