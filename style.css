@@ -133,6 +133,13 @@ body {
 #close {
   display: none;
 }
+/* CSS to style the logo */
+.logo {
+  max-width: 150px;  /* Adjust this value to your preference */
+  max-height: 90px;  /* Adjust this value to your preference */
+  width: auto;
+  height: auto;
+}
 
 /* Home Page  */
 #hero {
