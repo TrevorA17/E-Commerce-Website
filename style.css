@@ -689,10 +689,10 @@ footer .copyright {
 }
 
 #blog .blog-details a:hover {
-  color: #088178;
+  color: #7f4d3e;
 }
 #blog .blog-details a:hover::after {
-  background-color: #088178;
+  background-color: #7f4d3e;
 }
 
 #blog .blog-box h1 {
@@ -701,7 +701,7 @@ footer .copyright {
   left: 0;
   font-size: 70px;
   font-weight: 700;
-  color: #c9c9c9;
+  color: #f8cfb8;
   z-index: -9;
 }
 
