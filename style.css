@@ -5,10 +5,10 @@
   box-sizing: border-box;
   font-family: "Spartan", sans-serif;
 }
-i {
+/* i {
   font-family: "Font Awesome 6 Free" !important;
   font-weight: 900 !important;
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -208,7 +208,7 @@ body {
   padding: 9px 8px 6px 8px;
   line-height: 1;
   border-radius: 4px;
-  color: #088178;
+  color: #7f4d3e;
   background-color: #fddde4;
 }
 
@@ -267,7 +267,7 @@ body {
 
 #product1 .pro .des span {
   color: #606063;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 #product1 .pro .des h5 {
@@ -285,7 +285,7 @@ body {
   padding-top: 7px;
   font-size: 15px;
   font-weight: 700;
-  color: #088178;
+  color: #7f4d3e;
 }
 
 #product1 .pro .cart {
@@ -293,9 +293,9 @@ body {
   height: 40px;
   line-height: 40px;
   border-radius: 50px;
-  background-color: #e8f6ea;
+  background-color: #f0f0f0;
   font-weight: 500;
-  color: #088178;
+  color: #7f4d3e;
   border: 1px solid #cce7d0;
   position: absolute;
   bottom: 10px;
@@ -327,11 +327,11 @@ body {
 }
 
 #banner h2 span {
-  color: #ef3636;
+  color: #f8cfb8;
 }
 
 #banner button:hover {
-  background-color: #088178;
+  background-color: #7f4d3e;
   color: #fff;
 }
 
@@ -374,7 +374,7 @@ body {
 }
 
 #sm-banner .banner-box:hover button {
-  background: #088178;
+  background: #7f4d3e;
   border: 1px solid #088178;
 }
 
@@ -418,7 +418,7 @@ body {
 }
 
 #banner3 h3 {
-  color: #ec544e;
+  color: #f8cfb8;
   font-weight: 800;
   font-size: 15px;
 }
@@ -448,7 +448,7 @@ body {
 }
 
 #newsletter p span {
-  color: #ffbd27;
+  color: #f8cfb8;
 }
 
 #newsletter .form {
@@ -469,7 +469,7 @@ body {
 }
 
 #newsletter button {
-  background-color: #088178;
+  background-color: #7f4d3e;
   color: #fff;
   white-space: nowrap;
   border-top-left-radius: 0;
