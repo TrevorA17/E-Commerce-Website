@@ -346,7 +346,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-image: url("img/banner/b17.jpg");
+  background-image: url("img/we/img12.jpg");
   min-width: 500px;
   height: 50vh;
   background-size: cover;
@@ -379,7 +379,7 @@ body {
 }
 
 #sm-banner .banner-box2 {
-  background-image: url("img/banner/b10.jpg");
+  background-image: url("img/we/img10.jpg");
 }
 
 #banner3 {
@@ -394,7 +394,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-image: url("img/banner/b7.jpg");
+  background-image: url("img/we/img13.jpg");
   min-width: 30%;
   height: 30vh;
   background-size: cover;
@@ -404,11 +404,11 @@ body {
 }
 
 #banner3 .banner-box2 {
-  background-image: url("img/banner/b4.jpg");
+  background-image: url("img/we/img5.JPG");
 }
 
 #banner3 .banner-box3 {
-  background-image: url("img/banner/b18.jpg");
+  background-image: url("img/we/img8.jpg");
 }
 
 #banner3 h2 {
