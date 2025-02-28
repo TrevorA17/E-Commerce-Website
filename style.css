@@ -129,9 +129,20 @@ body {
   left: 20px;
 }
 
+/* Mobile Menu Icon */
 #mobile {
-  display: none;
-  align-items: center;
+  display: flex; /* Initially hidden, will be shown in media queries */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#mobile i {
+  color: #1a1a1a;
+}
+
+/* Mobile Menu Open State */
+#navbar.active {
+  display: flex;
 }
 
 #close {
@@ -1200,5 +1211,49 @@ footer .copyright {
   #subtotal {
     width: 100%;
     padding: 20px;
+  }
+}
+
+/* Ensure navbar is hidden initially on mobile */
+@media screen and (max-width: 1024px) {
+  #navbar {
+    display: flex; /* Set display to flex to allow toggling */
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    background: #e3e6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    padding: 10px 0;
+    transform: translateY(-200%); /* Moves menu out of view */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #navbar.active {
+    transform: translateY(0); /* Moves menu into view */
+  }
+
+  #navbar li {
+    padding: 15px 0;
+    width: 100%;
+  }
+}
+
+/* Hide the hamburger menu for larger screens */
+@media screen and (min-width: 1025px) {
+  #mobile {
+    display: none; /* Ensure the hamburger icon is hidden */
+  }
+
+  #navbar {
+    display: flex; /* Show the navbar as a regular menu */
+    flex-direction: row;
+    position: static; /* Prevent absolute positioning issues */
+    transform: translateY(0);
+    width: auto;
+    background: none;
+    box-shadow: none;
   }
 }
