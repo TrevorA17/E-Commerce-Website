@@ -29,3 +29,16 @@ window.addEventListener("resize", () => {
     menuIcon.classList.remove("fa-times");
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+  const menuItems = document.querySelectorAll("#navbar li a");
+
+  menuItems.forEach((item) => {
+    if (item.getAttribute("href") === currentPage) {
+      item.classList.add("active"); // Add active class to the matching menu item
+    } else {
+      item.classList.remove("active"); // Remove active class from others
+    }
+  });
+});
