@@ -158,11 +158,11 @@ body {
 
 /* Home Page  */
 #hero {
-  background-image: url("img/hero4.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/hero/2.jpg");
   height: 90vh;
   width: 100%;
   background-size: cover;
-  background-position: top 25% right 0;
+  background-position: top 53% right 0;
   padding: 0 80px;
   display: flex;
   flex-direction: column;
@@ -172,16 +172,24 @@ body {
 
 #hero h4 {
   padding-bottom: 15px;
+  color: #F8CFB8;
 }
 
 #hero h1 {
-  color: #7f4d3e;
+  color: #F8CFB8
 }
+#hero h2 {
+  color: white;
+}
+#hero p {
+  color: white;
+}
+
 
 #hero button {
   background-image: url("img/button.png");
   background-color: transparent;
-  color: #7f4d3e;
+  color: #F8CFB8;
   border: 0;
   padding: 14px 80px 14px 65px;
   background-repeat: no-repeat;
