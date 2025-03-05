@@ -658,7 +658,8 @@ footer .copyright {
 
 /* Blog Page  */
 #page-header.blog-header {
-  background-image: url(img/banner/b19.jpg);
+  background-image: url(img/hero/4.jpg);
+  background-position: top 50%;
 }
 
 #blog {
