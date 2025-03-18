@@ -350,11 +350,121 @@
       </div>
     </section>
 
-    <section id="pagination" class="section-p1">
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#"><i class="fas fa-arrow-right"></i></a>
-    </section>
+
+    <!-- Pagination Section -->
+  <section id="pagination" class="section-p1">
+    <div class="pro-container">
+
+    <script>
+      // Define products array
+      const products = [
+        { img: "img/clothes/34.JPG", brand: "Adidas", name: "Cartoon Astronaut Tee", price: "$78" },
+        { img: "img/clothes/33.JPG", brand: "Nike", name: "Cool Graphic Tee", price: "$65" },
+        { img: "img/clothes/32.JPG", brand: "Puma", name: "Stylish Summer Shirt", price: "$50" },
+        { img: "img/clothes/29.JPG", brand: "Reebok", name: "Casual Fit Shirt", price: "$55" },
+        { img: "img/clothes/1.JPG", brand: "Under Armour", name: "Urban Streetwear", price: "$85" },
+        { img: "img/clothes/2.JPG", brand: "Adidas", name: "Street Style Hoodie", price: "$90" },
+        { img: "img/clothes/3.JPG", brand: "Nike", name: "Slim Fit Joggers", price: "$45" },
+        { img: "img/clothes/4.JPG", brand: "Puma", name: "Retro Windbreaker", price: "$70" },
+        { img: "img/clothes/5.JPG", brand: "Reebok", name: "Casual Cotton Tee", price: "$35" },
+        { img: "img/clothes/6.JPG", brand: "Under Armour", name: "Performance Shorts", price: "$40" },
+        { img: "img/clothes/6.JPG", brand: "Under Armour", name: "Performance Shorts", price: "$40" },
+        { img: "img/clothes/6.JPG", brand: "Under Armour", name: "Performance Shorts", price: "$40" },
+      ];
+    
+      const itemsPerPage = 4;
+      let currentPage = 1;
+      const totalPages = Math.ceil(products.length / itemsPerPage);
+    
+      const container = document.querySelector(".pro-container");
+      const pagination = document.querySelector("#pagination");
+    
+      function displayProducts(page) {
+        container.innerHTML = ""; // Clear existing products
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const paginatedProducts = products.slice(start, end);
+    
+        paginatedProducts.forEach((product) => {
+          const productCard = document.createElement("div");
+          productCard.classList.add("pro");
+          productCard.onclick = () => (window.location.href = "sproduct.html");
+    
+          productCard.innerHTML = `
+            <img src="${product.img}" alt="${product.name}" />
+            <div class="des">
+              <span>${product.brand}</span>
+              <h5>${product.name}</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>${product.price}</h4>
+            </div>
+            <a class="cart" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+          `;
+    
+          container.appendChild(productCard);
+        });
+      }
+    
+      function updatePagination() {
+        pagination.innerHTML = ""; // Clear existing pagination
+    
+        // Previous Button
+        if (currentPage > 1) {
+          const prevPage = document.createElement("a");
+          prevPage.href = "#";
+          prevPage.innerHTML = `<i class="fas fa-arrow-left"></i>`;
+          prevPage.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage--;
+            displayProducts(currentPage);
+            updatePagination();
+          });
+          pagination.appendChild(prevPage);
+        }
+    
+        // Page Numbers
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement("a");
+          pageLink.href = "#";
+          pageLink.innerText = i;
+          if (i === currentPage) pageLink.classList.add("active");
+          pageLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage = i;
+            displayProducts(currentPage);
+            updatePagination();
+          });
+          pagination.appendChild(pageLink);
+        }
+    
+        // Next Button
+        if (currentPage < totalPages) {
+          const nextPage = document.createElement("a");
+          nextPage.href = "#";
+          nextPage.innerHTML = `<i class="fas fa-arrow-right"></i>`;
+          nextPage.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage++;
+            displayProducts(currentPage);
+            updatePagination();
+          });
+          pagination.appendChild(nextPage);
+        }
+      }
+    
+      // Initialize
+      displayProducts(currentPage);
+      updatePagination();
+    </script>
+    </div>
+  </section>
+    
 
     <section id="newsletter" class="section-p1 section-m1">
       <div class="newstext">

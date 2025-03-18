@@ -589,6 +589,10 @@ footer .copyright {
 
 #pagination {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
 }
 
 #pagination a {
@@ -600,9 +604,21 @@ footer .copyright {
   font-weight: 600;
 }
 
+#pagination a:hover {
+  background-color: #f8cfb8;
+  color: #000;
+}
+
 #pagination a i {
   font-size: 16px;
   font-weight: 600;
+}
+
+#pagination a.active {
+  background:  #f8cfb8;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid  #f8cfb8;
 }
 
 /* Single Product  */
