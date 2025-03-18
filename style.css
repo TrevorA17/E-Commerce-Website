@@ -79,6 +79,8 @@ button.white {
 
 body {
   width: 100%;
+  padding-top: 100px; /* Adjust based on the height of your header */
+
 }
 
 body, html {
@@ -96,7 +98,8 @@ body, html {
   background: #e3e6f3;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
 }
@@ -209,6 +212,7 @@ body, html {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   text-align: center;
+  justify-content: center;
 }
 
 #feature .fe-box {
@@ -224,7 +228,7 @@ body, html {
 }
 
 #feature .fe-box img {
-  width: 60px;
+  width: 90px;
   margin-bottom: 10px;
 }
 
@@ -1270,5 +1274,26 @@ footer .copyright {
     width: auto;
     background: none;
     box-shadow: none;
+  }
+}
+
+/* Ensure at least 2 cards per row on smaller screens */
+@media (max-width: 768px) {
+  #feature {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+  }
+}
+
+/* Force 3 cards per row on very small screens if space allows */
+@media (max-width: 480px) {
+  #feature {
+    grid-template-columns: repeat(2, 1fr); /* Still 2 per row */
+  }
+}
+
+/* For extra small screens (if needed, fallback to 1 per row) */
+@media (max-width: 350px) {
+  #feature {
+    grid-template-columns: 1fr; /* 1 column for ultra-small screens */
   }
 }
