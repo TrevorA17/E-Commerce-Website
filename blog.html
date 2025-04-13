@@ -44,98 +44,141 @@
       <p>Discover trends, tips, and stories that shape our world.</p>
     </section>
 
-    <section id="blog">
-      <div class="blog-box">
-        <div class="blog-img">
-          <img src="img/hero/1.jpg" alt="" />
-        </div>
-        <div class="blog-details">
-          <h4>The Hoodies</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae
-            ducimus inventore quas modi, tenetur molestiae hic rerum. Placeat
-            quo accusantium architecto commodi iure! Nihil laudantium quas
-            veritatis vel accusamus?
-          </p>
-          <a href="#">CONTINUE READING</a>
-        </div>
-        <h1>13/01</h1>
-      </div>
-
-      <div class="blog-box">
-        <div class="blog-img">
-          <img src="img/hero/6.jpg" alt="" />
-        </div>
-        <div class="blog-details">
-          <h4>The Hoodies</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae
-            ducimus inventore quas modi, tenetur molestiae hic rerum. Placeat
-            quo accusantium architecto commodi iure! Nihil laudantium quas
-            veritatis vel accusamus?
-          </p>
-          <a href="#">CONTINUE READING</a>
-        </div>
-        <h1>13/01</h1>
-      </div>
-
-      <div class="blog-box">
-        <div class="blog-img">
-          <img src="img/hero/7.jpg" alt="" />
-        </div>
-        <div class="blog-details">
-          <h4>The Hoodies</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae
-            ducimus inventore quas modi, tenetur molestiae hic rerum. Placeat
-            quo accusantium architecto commodi iure! Nihil laudantium quas
-            veritatis vel accusamus?
-          </p>
-          <a href="#">CONTINUE READING</a>
-        </div>
-        <h1>13/01</h1>
-      </div>
-
-      <div class="blog-box">
-        <div class="blog-img">
-          <img src="img/hero/9.jpg" alt="" />
-        </div>
-        <div class="blog-details">
-          <h4>The Hoodies</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae
-            ducimus inventore quas modi, tenetur molestiae hic rerum. Placeat
-            quo accusantium architecto commodi iure! Nihil laudantium quas
-            veritatis vel accusamus?
-          </p>
-          <a href="#">CONTINUE READING</a>
-        </div>
-        <h1>13/01</h1>
-      </div>
-
-      <div class="blog-box">
-        <div class="blog-img">
-          <img src="img/hero/5.jpg" alt="" />
-        </div>
-        <div class="blog-details">
-          <h4>The Hoodies</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae
-            ducimus inventore quas modi, tenetur molestiae hic rerum. Placeat
-            quo accusantium architecto commodi iure! Nihil laudantium quas
-            veritatis vel accusamus?
-          </p>
-          <a href="#">CONTINUE READING</a>
-        </div>
-        <h1>13/01</h1>
-      </div>
+    <!-- BLOG SECTION WITH PAGINATION -->
+    <section id="blog" class="section-p1">
+      <div class="blog-container"></div>
     </section>
 
-    <section id="pagination" class="section-p1">
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#"><i class="fas fa-arrow-right"></i></a>
-    </section>
+    <section id="pagination" class="section-p1"></section>
+
+    <script>
+      // Blog post data
+      const blogPosts = [
+        {
+          img: "img/hero/1.jpg",
+          title: "The Hoodies",
+          date: "13/01",
+          content:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae ducimus inventore quas modi, tenetur molestiae hic rerum. Placeat quo accusantium architecto commodi iure! Nihil laudantium quas veritatis vel accusamus?",
+        },
+        {
+          img: "img/hero/6.jpg",
+          title: "Urban Wear Trends",
+          date: "14/01",
+          content:
+            "Dolor sit amet consectetur adipisicing elit. Modi nemo illo tenetur assumenda distinctio, possimus, eveniet quibusdam quos velit, tempora nihil eaque consequatur omnis!",
+        },
+        {
+          img: "img/hero/7.jpg",
+          title: "Street Style 2024",
+          date: "15/01",
+          content:
+            "Consectetur adipisicing elit. Corporis expedita quidem quae! Quasi atque sunt nulla mollitia amet veniam magni architecto minus, labore in.",
+        },
+        {
+          img: "img/hero/9.jpg",
+          title: "Top Hoodie Picks",
+          date: "16/01",
+          content:
+            "Aliquam minus perferendis, soluta obcaecati cumque, voluptate incidunt dicta amet reprehenderit, aut molestias animi deserunt. Blanditiis natus veritatis eveniet.",
+        },
+        {
+          img: "img/hero/5.jpg",
+          title: "Cozy Vibes",
+          date: "17/01",
+          content:
+            "Laudantium facere dolorem porro, saepe, nulla est magnam earum debitis voluptatum doloremque laboriosam reprehenderit minima maiores, voluptatem officiis ea fugit.",
+        },
+      ];
+
+      // Pagination variables
+      const itemsPerPage = 2;
+      let currentPage = 1;
+      const totalPages = Math.ceil(blogPosts.length / itemsPerPage);
+
+      // DOM elements
+      const blogContainer = document.querySelector(".blog-container");
+      const pagination = document.querySelector("#pagination");
+
+      // Function to display blog posts
+      function displayBlogPosts(page) {
+        blogContainer.innerHTML = "";
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const currentPosts = blogPosts.slice(start, end);
+
+        currentPosts.forEach((post) => {
+          const blogBox = document.createElement("div");
+          blogBox.classList.add("blog-box");
+
+          blogBox.innerHTML = `
+        <div class="blog-img">
+          <img src="${post.img}" alt="${post.title}" />
+        </div>
+        <div class="blog-details">
+          <h4>${post.title}</h4>
+          <p>${post.content}</p>
+          <a href="#">CONTINUE READING</a>
+        </div>
+        <h1>${post.date}</h1>
+      `;
+
+          blogContainer.appendChild(blogBox);
+        });
+      }
+
+      // Function to update pagination controls
+      function updatePagination() {
+        pagination.innerHTML = "";
+
+        // Prev button
+        if (currentPage > 1) {
+          const prev = document.createElement("a");
+          prev.href = "#";
+          prev.innerHTML = `<i class="fas fa-arrow-left"></i>`;
+          prev.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage--;
+            displayBlogPosts(currentPage);
+            updatePagination();
+          });
+          pagination.appendChild(prev);
+        }
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement("a");
+          pageLink.href = "#";
+          pageLink.textContent = i;
+          if (i === currentPage) pageLink.classList.add("active");
+          pageLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage = i;
+            displayBlogPosts(currentPage);
+            updatePagination();
+          });
+          pagination.appendChild(pageLink);
+        }
+
+        // Next button
+        if (currentPage < totalPages) {
+          const next = document.createElement("a");
+          next.href = "#";
+          next.innerHTML = `<i class="fas fa-arrow-right"></i>`;
+          next.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage++;
+            displayBlogPosts(currentPage);
+            updatePagination();
+          });
+          pagination.appendChild(next);
+        }
+      }
+
+      // Initialize
+      displayBlogPosts(currentPage);
+      updatePagination();
+    </script>
 
     <section id="newsletter" class="section-p1 section-m1">
       <div class="newstext">
@@ -163,7 +206,9 @@
           <div class="icon">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
+            <a href="https://www.instagram.com/reviveretro0/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
             <i class="fa-brands fa-linkedin-in"></i>
             <i class="fa-brands fa-youtube"></i>
           </div>
