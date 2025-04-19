@@ -94,7 +94,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 80px;
+  padding: 4px 50px;
   background: #e3e6f3;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
@@ -160,7 +160,7 @@ body, html {
 /* CSS to style the logo */
 .logo {
   max-width: 180px;
-  max-height: 90px;
+  max-height: 80px;
   width: auto;
   height: auto;
 }
@@ -177,6 +177,7 @@ body, html {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin-top: 80px;
 }
 
 #hero h4 {
@@ -580,6 +581,7 @@ footer .copyright {
   text-align: center;
   flex-direction: column;
   padding: 14px;
+  margin-top: 80px;
 }
 
 #page-header h2,
@@ -896,6 +898,7 @@ footer .copyright {
 /* Cart Page  */
 #cart {
   overflow-x: auto;
+  margin-top: 80px;
 }
 
 #cart table {
