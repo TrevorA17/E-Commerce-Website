@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
     <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/Logos/favicon-32x32.png" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -17,9 +16,9 @@
 
   <body>
     <section id="header">
-      <a href="#"
-        ><img src="img/Logos/WithoutBG/Choco_Text_no_BG.png" class="logo"
-      /></a>
+      <a href="#">
+        <img src="img/Logos/WithoutBG/Choco_Text_no_BG.png" class="logo" />
+      </a>
 
       <div>
         <ul id="navbar">
@@ -31,7 +30,7 @@
           <li id="lg-bag">
             <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
           </li>
-          <a href="" id="close"><i class="far fa-times"></i></a>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
         </ul>
       </div>
       <div id="mobile">
@@ -46,36 +45,16 @@
 
         <div class="small-img-group">
           <div class="small-img-col">
-            <img
-              src="img/clothes/7.JPG"
-              width="100%"
-              class="small-img"
-              alt=""
-            />
+            <img src="img/clothes/7.JPG" width="100%" class="small-img" alt="" />
           </div>
           <div class="small-img-col">
-            <img
-              src="img/clothes/8.JPG"
-              width="100%"
-              class="small-img"
-              alt=""
-            />
+            <img src="img/clothes/8.JPG" width="100%" class="small-img" alt="" />
           </div>
           <div class="small-img-col">
-            <img
-              src="img/clothes/13.JPG"
-              width="100%"
-              class="small-img"
-              alt=""
-            />
+            <img src="img/clothes/13.JPG" width="100%" class="small-img" alt="" />
           </div>
           <div class="small-img-col">
-            <img
-              src="img/clothes/14.JPG"
-              width="100%"
-              class="small-img"
-              alt=""
-            />
+            <img src="img/clothes/14.JPG" width="100%" class="small-img" alt="" />
           </div>
         </div>
       </div>
@@ -86,10 +65,10 @@
         <h2>$139.00</h2>
         <select id="product-size">
           <option>Select size</option>
+          <option>Small</option>
+          <option>Large</option>
           <option>XL</option>
           <option>XXL</option>
-          <option>Large</option>
-          <option>Small</option>
         </select>
         <input type="number" id="quantity" value="1" min="1" />
         <button class="normal" id="add-to-cart">Add to Cart</button>
@@ -111,7 +90,7 @@
           <img src="img/clothes/1.JPG" alt="" />
           <div class="des">
             <span>adidas</span>
-            <h5>Cartoon Astronaunt Tee</h5>
+            <h5>Cartoon Astronaut Tee</h5>
             <div class="star">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -121,9 +100,7 @@
             </div>
             <h4>$78</h4>
           </div>
-          <a class="cart" href="#"
-            ><i class="fa-solid fa-cart-shopping"></i>
-          </a>
+          <a class="cart" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
       </div>
     </section>
@@ -151,25 +128,18 @@
     </footer>
 
     <script>
-      // Image switch for the product images
+      // Switch main image
       const MainImg = document.getElementById("MainImg");
       const smallimg = document.getElementsByClassName("small-img");
 
-      smallimg[0].onclick = function () {
-        MainImg.src = smallimg[0].src;
-      };
-      smallimg[1].onclick = function () {
-        MainImg.src = smallimg[1].src;
-      };
-      smallimg[2].onclick = function () {
-        MainImg.src = smallimg[2].src;
-      };
-      smallimg[3].onclick = function () {
-        MainImg.src = smallimg[3].src;
-      };
+      for (let i = 0; i < smallimg.length; i++) {
+        smallimg[i].onclick = () => {
+          MainImg.src = smallimg[i].src;
+        };
+      }
 
-      // Add to Cart functionality
-      document.getElementById('add-to-cart').addEventListener('click', async () => {
+      // Add to Cart using localStorage
+      document.getElementById('add-to-cart').addEventListener('click', () => {
         const size = document.getElementById('product-size').value;
         const quantity = parseInt(document.getElementById('quantity').value, 10);
 
@@ -179,25 +149,28 @@
         }
 
         const product = {
-          id: '123', // Unique product ID
+          id: 'tee-001', // unique ID
           name: "Men's Fashion Tee",
           price: 139.00,
-          quantity,
-          size
+          image: "img/clothes/12.JPG",
+          size,
+          quantity
         };
 
-        const response = await fetch('/api/cart', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ product })
-        });
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        const updatedCart = await response.json();
-        alert("Item added to cart! Current cart: " + JSON.stringify(updatedCart));
+        const existing = cart.find(item => item.id === product.id && item.size === product.size);
+        if (existing) {
+          existing.quantity += product.quantity;
+        } else {
+          cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.href = 'cart.html'; // redirect to cart
       });
     </script>
+
     <script src="script.js"></script>
   </body>
 </html>
