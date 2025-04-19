@@ -18,10 +18,9 @@
 
   <body>
     <section id="header">
-      <a href="#"
-        ><img src="img/Logos/WithoutBG/Choco_Text_no_BG.png" class="logo"
-      /></a>
-
+      <a href="#">
+        <img src="img/Logos/WithoutBG/Choco_Text_no_BG.png" class="logo" />
+      </a>
       <div>
         <ul id="navbar">
           <li><a href="index.html">Home</a></li>
@@ -30,9 +29,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li id="lg-bag">
-            <a class="active" href="cart.html"
-              ><i class="fa fa-shopping-bag"></i
-            ></a>
+            <a class="active" href="cart.html"><i class="fa fa-shopping-bag"></i></a>
           </li>
           <a href="" id="close"><i class="far fa-times"></i></a>
         </ul>
@@ -60,37 +57,8 @@
             <td>Subtotal</td>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>
-              <a href=""><i class="far fa-times-circle"></i></a>
-            </td>
-            <td><img src="img/products/f1.jpg" alt="" /></td>
-            <td>Cartoon Astro Tee</td>
-            <td>$122.90</td>
-            <td><input type="number" value="1" /></td>
-            <td>$122.90</td>
-          </tr>
-          <tr>
-            <td>
-              <a href=""><i class="far fa-times-circle"></i></a>
-            </td>
-            <td><img src="img/products/f2.jpg" alt="" /></td>
-            <td>Cartoon Astro Tee</td>
-            <td>$122.90</td>
-            <td><input type="number" value="1" /></td>
-            <td>$122.90</td>
-          </tr>
-          <tr>
-            <td>
-              <a href=""><i class="far fa-times-circle"></i></a>
-            </td>
-            <td><img src="img/products/f3.jpg" alt="" /></td>
-            <td>Cartoon Astro Tee</td>
-            <td>$122.90</td>
-            <td><input type="number" value="1" /></td>
-            <td>$122.90</td>
-          </tr>
+        <tbody id="cart-items">
+          <!-- Cart items will be injected here by JavaScript -->
         </tbody>
       </table>
     </section>
@@ -109,7 +77,7 @@
         <table>
           <tr>
             <td>Cart Subtotal</td>
-            <td>£35.00</td>
+            <td id="cart-subtotal">$0.00</td>
           </tr>
           <tr>
             <td>Shipping</td>
@@ -117,7 +85,7 @@
           </tr>
           <tr>
             <td><strong>Total</strong></td>
-            <td><strong>$35.00</strong></td>
+            <td><strong id="cart-total">$0.00</strong></td>
           </tr>
         </table>
         <button class="normal">Proceed to check out</button>
@@ -177,6 +145,61 @@
         <p>&copy; All rights Reserved 2025 | Powered by Trevor Augustine</p>
       </div>
     </footer>
+
+    <script>
+      function fetchCartItems() {
+        const items = JSON.parse(localStorage.getItem('cart')) || [];
+        renderCart(items);
+      }
+
+      function renderCart(items) {
+        const cartTable = document.getElementById('cart-items');
+        cartTable.innerHTML = '';
+
+        let subtotal = 0;
+
+        items.forEach(item => {
+          const itemSubtotal = item.price * item.quantity;
+          subtotal += itemSubtotal;
+
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><button onclick="removeFromCart('${item.id}')"><i class="far fa-times-circle"></i></button></td>
+            <td><img src="${item.image}" alt="${item.name}" /></td>
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.id}', this.value)" /></td>
+            <td>$${itemSubtotal.toFixed(2)}</td>
+          `;
+          cartTable.appendChild(row);
+        });
+
+        document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById('cart-total').innerText = `$${subtotal.toFixed(2)}`;
+      }
+
+      function removeFromCart(id) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart = cart.filter(item => item.id !== id);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        fetchCartItems();
+      }
+
+      function updateQuantity(id, quantity) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart = cart.map(item => {
+          if (item.id === id) {
+            return { ...item, quantity: parseInt(quantity) };
+          }
+          return item;
+        });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        fetchCartItems();
+      }
+
+      fetchCartItems();
+    </script>
+
     <script src="script.js"></script>
   </body>
 </html>
