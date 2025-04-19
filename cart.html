@@ -12,7 +12,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -34,15 +33,6 @@
           <a href="" id="close"><i class="far fa-times"></i></a>
         </ul>
       </div>
-      <div id="mobile">
-        <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
-        <i id="bar" class="fas fa-outdent"></i>
-      </div>
-    </section>
-
-    <section id="page-header" class="cart-header">
-      <h2>Your Cart</h2>
-      <p>Review your items & proceed to checkout!</p>
     </section>
 
     <section id="cart" class="section-p1">
@@ -64,14 +54,6 @@
     </section>
 
     <section id="cart-add" class="section-p1">
-      <div id="coupon">
-        <h3>Apply Coupon</h3>
-        <div>
-          <input type="text" placeholder="Enter Your Coupon" />
-          <button class="normal">Apply</button>
-        </div>
-      </div>
-
       <div id="subtotal">
         <h3>Cart Tools</h3>
         <table>
@@ -88,9 +70,12 @@
             <td><strong id="cart-total">$0.00</strong></td>
           </tr>
         </table>
-        <button class="normal">Proceed to check out</button>
+        <button class="normal" id="checkout-btn">Proceed to check out</button>
       </div>
     </section>
+
+    <!-- Snackbar for order confirmation -->
+    <div id="snackbar">Order Placed!</div>
 
     <footer class="section-p1">
       <div class="col">
@@ -112,38 +97,6 @@
           </div>
         </div>
       </div>
-
-      <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="#">Delivery Info</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Contact Us</a>
-      </div>
-      <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Orders</a>
-        <a href="#">Help</a>
-      </div>
-
-      <div class="col install">
-        <h4>Install App</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-          <img src="img/pay/app.jpg" alt="" />
-          <img src="img/pay/play.jpg" alt="" />
-        </div>
-        <p>Secured Payment Gateway</p>
-        <img src="img/pay/pay.png" alt="" />
-      </div>
-
-      <div class="copyright">
-        <p>&copy; All rights Reserved 2025 | Powered by Trevor Augustine</p>
-      </div>
     </footer>
 
     <script>
@@ -155,7 +108,6 @@
       function renderCart(items) {
         const cartTable = document.getElementById('cart-items');
         cartTable.innerHTML = '';
-
         let subtotal = 0;
 
         items.forEach(item => {
@@ -196,6 +148,39 @@
         localStorage.setItem('cart', JSON.stringify(cart));
         fetchCartItems();
       }
+
+      // Proceed to checkout
+      document.getElementById('checkout-btn').addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Send order details to Vercel logs (via a serverless function)
+        fetch('/api/logOrder', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(cart),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Order logged:', data);
+            
+            // Show snackbar for 3 seconds
+            const snackbar = document.getElementById('snackbar');
+            snackbar.className = 'show';
+            setTimeout(() => {
+              snackbar.className = snackbar.className.replace('show', '');
+            }, 3000);
+            
+            // Redirect to homepage after 3 seconds
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 3000);
+          })
+          .catch(error => {
+            console.error('Error logging order:', error);
+          });
+      });
 
       fetchCartItems();
     </script>

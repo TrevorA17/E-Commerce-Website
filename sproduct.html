@@ -127,6 +127,9 @@
       </div>
     </footer>
 
+    <!-- Snackbar -->
+    <div id="snackbar">Item added to cart</div>
+
     <script>
       // Switch main image
       const MainImg = document.getElementById("MainImg");
@@ -144,7 +147,7 @@
         const quantity = parseInt(document.getElementById('quantity').value, 10);
 
         if (size === 'Select size') {
-          alert('Please select a size.');
+          showSnackbar('Please select a size.');
           return;
         }
 
@@ -162,13 +165,25 @@
         const existing = cart.find(item => item.id === product.id && item.size === product.size);
         if (existing) {
           existing.quantity += product.quantity;
+          showSnackbar('Item quantity updated in cart');
         } else {
           cart.push(product);
+          showSnackbar('Item added to cart');
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
         window.location.href = 'cart.html'; // redirect to cart
       });
+
+      // Function to show snackbar
+      function showSnackbar(message) {
+        const snackbar = document.getElementById('snackbar');
+        snackbar.textContent = message;
+        snackbar.className = 'show';
+        setTimeout(() => {
+          snackbar.className = snackbar.className.replace('show', '');
+        }, 3000); // hide after 3 seconds
+      }
     </script>
 
     <script src="script.js"></script>
