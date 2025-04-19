@@ -84,3 +84,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   }
   
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+  
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const subject = document.getElementById('contact-subject').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+  
+    if (!name || !email || !subject || !message) {
+      showSnackbar("Please fill in all fields.");
+      return;
+    }
+  
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message })
+      });
+  
+      const data = await res.json();
+      showSnackbar(data.message);
+      this.reset();
+    } catch (err) {
+      console.error(err);
+      showSnackbar("Something went wrong. Please try again.");
+    }
+  });
+  
