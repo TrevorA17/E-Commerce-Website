@@ -42,3 +42,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+  const submitBtn = document.getElementById('newsletter-submit');
+  const emailInput = document.getElementById('newsletter-email');
+
+  submitBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const email = emailInput.value.trim();
+
+    if (!email || !email.includes('@')) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await res.json();
+      alert(data.message);
+
+      emailInput.value = ''; // Clear the input
+    } catch (err) {
+      alert("Something went wrong. Please try again later.");
+      console.error(err);
+    }
+  });
