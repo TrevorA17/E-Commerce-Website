@@ -70,6 +70,13 @@
             <td><strong id="cart-total">$0.00</strong></td>
           </tr>
         </table>
+
+        <!-- Phone Number Input -->
+        <div class="phone-number-container">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" placeholder="Enter your phone number" />
+        </div>
+
         <button class="normal" id="checkout-btn">Proceed to check out</button>
       </div>
     </section>
@@ -152,6 +159,12 @@
       // Proceed to checkout
       document.getElementById('checkout-btn').addEventListener('click', () => {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const phoneNumber = document.getElementById('phone').value;
+
+        if (!phoneNumber) {
+          alert('Please enter your phone number.');
+          return;
+        }
 
         // Send order details to Vercel logs (via a serverless function)
         fetch('/api/logOrder', {
@@ -159,19 +172,19 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(cart),
+          body: JSON.stringify({ cart, phoneNumber }),
         })
           .then(response => response.json())
           .then(data => {
             console.log('Order logged:', data);
-            
+
             // Show snackbar for 3 seconds
             const snackbar = document.getElementById('snackbar');
             snackbar.className = 'show';
             setTimeout(() => {
               snackbar.className = snackbar.className.replace('show', '');
             }, 3000);
-            
+
             // Redirect to homepage after 3 seconds
             setTimeout(() => {
               window.location.href = 'index.html';

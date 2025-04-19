@@ -1337,3 +1337,98 @@ footer .copyright {
   opacity: 1;
   transform: translateY(-10px);
 }
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#cart-add {
+  padding: 2rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+#subtotal table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+#subtotal td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+#phone {
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#phone:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+#checkout-btn {
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 100%;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+}
+
+#checkout-btn:enabled {
+  cursor: pointer;
+  background-color: #0091ea;
+}
+
+/* Phone Input Specific Styling */
+.phone-number-container {
+  margin-bottom: 1.5rem;
+}
+
+.phone-number-container label {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  #cart-add {
+    padding: 1.5rem;
+  }
+
+  #phone {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  #checkout-btn {
+    padding: 0.8rem;
+  }
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 480px) {
+  #subtotal table {
+    font-size: 0.9rem;
+  }
+
+  #checkout-btn {
+    font-size: 0.9rem;
+  }
+}
