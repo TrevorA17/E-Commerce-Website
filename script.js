@@ -48,27 +48,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
-
+  
     const email = emailInput.value.trim();
-
+  
     if (!email || !email.includes('@')) {
-      alert("Please enter a valid email address.");
+      showSnackbar("Please enter a valid email address.");
       return;
     }
-
+  
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
       });
-
+  
       const data = await res.json();
-      alert(data.message);
-
-      emailInput.value = ''; // Clear the input
+      showSnackbar(data.message);
+  
+      emailInput.value = '';
     } catch (err) {
-      alert("Something went wrong. Please try again later.");
+      showSnackbar("Something went wrong. Please try again later.");
       console.error(err);
     }
   });
+  
+
+  function showSnackbar(message) {
+    const snackbar = document.getElementById("snackbar");
+    snackbar.textContent = message;
+    snackbar.classList.add("show");
+  
+    setTimeout(() => {
+      snackbar.classList.remove("show");
+    }, 3000);
+  }
+  
