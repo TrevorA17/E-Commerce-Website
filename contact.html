@@ -45,6 +45,7 @@
       <h2>Get in Touch</h2>
       <p>We're here to help! Reach out with any questions or feedback.</p>
     </section>
+
     <section id="contact-details" class="section-p1">
       <div class="details">
         <span>GET IN TOUCH</span>
@@ -90,52 +91,19 @@
         <span>LEAVE A MESSAGE</span>
         <h2>We love to hear from you</h2>
     
-        <input type="text" id="contact-name" name="name" placeholder="Your Name" />
-        <input type="text" id="contact-email" name="email" placeholder="E-Mail" />
-        <input type="text" id="contact-subject" name="subject" placeholder="Subject" />
+        <input type="text" id="contact-name" name="name" placeholder="Your Name" required />
+        <input type="email" id="contact-email" name="email" placeholder="E-Mail" required />
+        <input type="text" id="contact-subject" name="subject" placeholder="Subject" required />
         <textarea
           id="contact-message"
           name="message"
           cols="30"
           rows="10"
           placeholder="Your Message"
+          required
         ></textarea>
         <button type="submit" class="normal">Submit</button>
       </form>
-    
-      <div class="people">
-        <div>
-          <p>
-            <span>Idi Salim</span> CEO & Founder <br />
-            Instagram: idixsalim <br />
-            Email: idisalim00@gmail.com
-          </p>
-        </div>
-        <div>
-          <p>
-            <span>Trevor Okinda</span> CEO & Founder <br />
-            Instagram: trevvs.atl <br />
-            Email: trevor.okinda@strathmore.edu
-          </p>
-        </div>
-      </div>
-    </section>
-    
-
-    <section id="newsletter" class="section-p1 section-m1">
-      <div class="newstext">
-        <h4>Sign Up For Newsletters</h4>
-        <p>
-          Get E-Mail updates about our latest shop and
-          <span>special offers.</span>
-        </p>
-      </div>
-    
-      <div class="form">
-        <!-- ✅ Add id + name so JS can pick it up -->
-        <input type="email" id="newsletter-email" placeholder="Your Email Address" required />
-        <button class="normal" id="newsletter-submit">Sign Up</button>
-      </div>
     </section>
 
     <footer class="section-p1">
@@ -191,6 +159,7 @@
         <p>&copy; All rights Reserved 2025 | Powered by Trevor Augustine</p>
       </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

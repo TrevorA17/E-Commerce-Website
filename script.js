@@ -84,32 +84,64 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   }
   
-  document.getElementById('contact-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-  
-    const name = document.getElementById('contact-name').value.trim();
-    const email = document.getElementById('contact-email').value.trim();
-    const subject = document.getElementById('contact-subject').value.trim();
-    const message = document.getElementById('contact-message').value.trim();
-  
-    if (!name || !email || !subject || !message) {
-      showSnackbar("Please fill in all fields.");
-      return;
-    }
-  
+  // Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const name = document.getElementById("contact-name").value;
+    const email = document.getElementById("contact-email").value;
+    const subject = document.getElementById("contact-subject").value;
+    const message = document.getElementById("contact-message").value;
+
+    // Prepare the data to be sent to the backend
+    const formData = {
+      name,
+      email,
+      subject,
+      message
+    };
+
+    // Show loading feedback (optional)
+    showSnackbar("Submitting your message...");
+
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message })
+      // Send the data to the backend API (the API URL should match the route in your backend)
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
       });
-  
-      const data = await res.json();
-      showSnackbar(data.message);
-      this.reset();
-    } catch (err) {
-      console.error(err);
-      showSnackbar("Something went wrong. Please try again.");
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // On success, show a success message
+        showSnackbar(result.message || "Thanks for reaching out!");
+      } else {
+        // On error, show an error message
+        showSnackbar(result.message || "There was an error, please try again.");
+      }
+    } catch (error) {
+      // If there's a network or server error
+      console.error("Error during form submission:", error);
+      showSnackbar("There was an error, please try again.");
     }
   });
-  
+
+  // Function to show feedback messages (snackbar)
+  function showSnackbar(message) {
+    const snackbar = document.getElementById("snackbar");
+    snackbar.textContent = message;
+    snackbar.className = "show";
+    
+    // Hide the snackbar after 3 seconds
+    setTimeout(() => {
+      snackbar.className = snackbar.className.replace("show", "");
+    }, 3000);
+  }
+});
