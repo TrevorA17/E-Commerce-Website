@@ -1,0 +1,93 @@
+🧰 Upstash Redis CLI Commands – Quick Reference Guide
+
+This guide includes useful Redis CLI commands for Upstash CLI. Use these commands to view, inspect, and manage data like contact form entries, newsletter subscribers, and orders.
+
+──────────────────────────────────────────────
+✅ GENERAL COMMANDS
+
+# Test connection
+PING
+
+# Count all keys
+DBSIZE
+
+# List all keys
+KEYS *
+
+# List contact form keys
+KEYS contact:*
+
+# List order keys
+KEYS order:*
+
+# List newsletter subscriber keys
+KEYS subscriber:*
+
+──────────────────────────────────────────────
+🔍 VIEWING DATA
+
+# Check key type (string, hash, list, etc.)
+TYPE <key>
+
+# If it's a hash (most used in forms)
+HGETALL <key>
+
+# If it's a string
+GET <key>
+
+# Example
+TYPE contact:2025-04-20T09:19:24.617Z
+HGETALL contact:2025-04-20T09:19:24.617Z
+
+──────────────────────────────────────────────
+🗑️ DELETING DATA
+
+# Delete a single key
+DEL <key>
+
+# Delete multiple keys
+DEL key1 key2 key3
+
+# List and delete group of keys manually
+KEYS contact:*     # then copy-paste into:
+DEL contact:timestamp1 contact:timestamp2 ...
+
+──────────────────────────────────────────────
+💣 CLEAR ENTIRE DATABASE
+
+# ⚠️ Deletes everything in the DB – irreversible!
+FLUSHDB
+
+──────────────────────────────────────────────
+⏳ EXPIRY (OPTIONAL)
+
+# Set expiry on a key (in seconds)
+EXPIRE <key> 86400       # 1 day
+
+# Check time left to expire
+TTL <key>
+
+──────────────────────────────────────────────
+✍️ MANUAL DATA ENTRY (OPTIONAL)
+
+# Set a string key
+SET mykey "some value"
+
+# Set a hash (key with fields and values)
+HSET user:1000 name "Jane" age "30"
+
+──────────────────────────────────────────────
+✅ RECOMMENDED KEY PREFIXES (CONVENTION)
+
+contact:<timestamp>         → Contact form submissions
+order:<timestamp>           → Orders
+subscriber:<timestamp>      → Newsletter signups
+
+──────────────────────────────────────────────
+📌 TIP
+
+Use UTC timestamps or unique IDs as suffixes to avoid overwriting.
+
+Example:
+SET subscriber:2025-04-20T10:33:12Z "user@example.com"
+HSET contact:2025-04-20T09:00:00Z name "Jane" message "Hello"
