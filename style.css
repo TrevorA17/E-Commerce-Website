@@ -626,7 +626,7 @@ footer .copyright {
 /* Single Product  */
 #prodetails {
   display: flex;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 #prodetails .single-pro-image {
