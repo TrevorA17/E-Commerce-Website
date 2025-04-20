@@ -30,60 +30,60 @@ window.addEventListener("resize", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const currentPage = window.location.pathname.split("/").pop(); // Get current page filename
-  const menuItems = document.querySelectorAll("#navbar li a");
+  document.addEventListener("DOMContentLoaded", function () {
+    // Highlight active nav link
+    const currentPage = window.location.pathname.split("/").pop();
+    const menuItems = document.querySelectorAll("#navbar li a");
 
-  menuItems.forEach((item) => {
-    if (item.getAttribute("href") === currentPage) {
-      item.classList.add("active"); // Add active class to the matching menu item
-    } else {
-      item.classList.remove("active"); // Remove active class from others
+    menuItems.forEach((item) => {
+      if (item.getAttribute("href") === currentPage) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+
+    // Newsletter subscription logic
+    const submitBtn = document.getElementById("newsletter-submit");
+    const emailInput = document.getElementById("newsletter-email");
+
+    submitBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      const email = emailInput.value.trim();
+
+      if (!email || !email.includes("@")) {
+        showSnackbar("Please enter a valid email address.");
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await res.json();
+        showSnackbar(data.message || "Thanks for subscribing!");
+        emailInput.value = "";
+      } catch (err) {
+        showSnackbar("Something went wrong. Please try again later.");
+        console.error(err);
+      }
+    });
+
+    function showSnackbar(message) {
+      const snackbar = document.getElementById("snackbar");
+      snackbar.textContent = message;
+      snackbar.classList.add("show");
+
+      setTimeout(() => {
+        snackbar.classList.remove("show");
+      }, 3000);
     }
   });
-});
 
-  const submitBtn = document.getElementById('newsletter-submit');
-  const emailInput = document.getElementById('newsletter-email');
-
-  submitBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
-  
-    const email = emailInput.value.trim();
-  
-    if (!email || !email.includes('@')) {
-      showSnackbar("Please enter a valid email address.");
-      return;
-    }
-  
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-  
-      const data = await res.json();
-      showSnackbar(data.message);
-  
-      emailInput.value = '';
-    } catch (err) {
-      showSnackbar("Something went wrong. Please try again later.");
-      console.error(err);
-    }
-  });
-  
-
-  function showSnackbar(message) {
-    const snackbar = document.getElementById("snackbar");
-    snackbar.textContent = message;
-    snackbar.classList.add("show");
-  
-    setTimeout(() => {
-      snackbar.classList.remove("show");
-    }, 3000);
-  }
-  
   // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("contact-form");
