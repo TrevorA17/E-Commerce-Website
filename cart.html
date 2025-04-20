@@ -58,7 +58,6 @@
       <div>
         <div id="mobile">
           <i class="fas fa-bars" id="menu-icon"></i>
-          <!-- Hamburger Icon -->
         </div>
 
         <ul id="navbar">
@@ -86,9 +85,7 @@
             <td>Subtotal</td>
           </tr>
         </thead>
-        <tbody id="cart-items">
-          <!-- Cart items will be injected here by JavaScript -->
-        </tbody>
+        <tbody id="cart-items"></tbody>
       </table>
     </section>
 
@@ -212,25 +209,28 @@
           return;
         }
 
+        if (cart.length === 0) {
+          showSnackbar('Your cart is empty.');
+          return;
+        }
+
         fetch('/api/logOrder', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ cart, phoneNumber }),
+          body: JSON.stringify({
+            cart,
+            phoneNumber,
+            createdAt: new Date().toISOString(),
+          }),
         })
           .then(response => response.json())
           .then(data => {
             console.log('Order logged:', data);
-
-            // Clear cart
             localStorage.removeItem('cart');
-            fetchCartItems(); // re-render empty cart
-
-            // Show success snackbar
+            fetchCartItems();
             showSnackbar('Order placed successfully! Redirecting...');
-
-            // Redirect to homepage after 3s
             setTimeout(() => {
               window.location.href = 'index.html';
             }, 3000);
