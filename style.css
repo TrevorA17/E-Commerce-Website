@@ -424,7 +424,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-image: url("img/we/img13.jpg");
+  background-image: url("img/we/img8.jpg");
   min-width: 30%;
   height: 30vh;
   background-size: cover;
@@ -434,11 +434,11 @@ body, html {
 }
 
 #banner3 .banner-box2 {
-  background-image: url("img/we/img5.JPG");
+  background-image: url("img/we/img2.jpg");
 }
 
 #banner3 .banner-box3 {
-  background-image: url("img/we/img8.jpg");
+  background-image: url("img/we/img17.jpg");
 }
 
 #banner3 h2 {
